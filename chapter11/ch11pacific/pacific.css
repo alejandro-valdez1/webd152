@@ -62,6 +62,7 @@ nav li {
 }
 nav a {
   text-decoration: none; /*txd*/
+  transition: color 3s ease-out; /*Adds a smooth color transition effect on hover*/
 }
 nav a:link {
   color: #5c7fa3; /*c#5c7fa3*/
@@ -259,6 +260,106 @@ input[type="submit"]:focus {
 .center > p {
   margin: 0; /*Removes default margin from headings and paragraphs*/
 }
+/* Flex container for the main content row */
+.content-row {
+  display: flex; /*d:flex*/
+  flex-wrap: wrap; /*fw:wrap*/
+  gap: 2em; /*g:2em*/
+  align-items: flex-start; /*ai:flex-start*/
+  margin-bottom: 2em; /*mb:2em*/
+}
+/*Video styling*/
+.content-row video {
+  flex: 0 0 320px; /*f:0 0 320px*/
+  margin: 2em; /*m:2em*/
+  max-width: 100%; /*maxw:100%*/
+  border-radius: 0.5em; /*br:0.5em*/
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /*bs: 0 4px 10px rgba(0, 0, 0, 0.5) */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease; /*trs:transform 0.3s ease, box-shadow 0.3s ease*/
+}
+/*Text content styling*/
+.text-content {
+  flex: 1; /*f:1*/
+  min-width: 250px; /*minw:250px*/
+}
+
+/* Gallery Grid Layout */
+.gallery {
+  display: grid; /*d:grid*/
+  grid-template-columns: repeat(1, 1fr); /*gt:columns:repeat(1,1fr)*/
+  gap: 1em; /*g:1em*/
+  margin: 2em 0; /*m:2em 0*/
+}
+
+/* Gallery Image Container */
+.gallery-image {
+  position: relative; /*p:relative*/
+  overflow: hidden; /*o:hidden*/
+  border-radius: 0.5em; /*br:0.5em*/
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /*bs:0 4px 10px rgba(0, 0, 0, 0.5)*/
+  background: #fff; /*bg:#fff*/
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease; /*trs:transform 0.3s ease, box-shadow 0.3s ease*/
+}
+
+/* Images */
+.gallery-image img {
+  width: 100%; /*w:100%*/
+  height: auto; /*h:auto*/
+  display: block; /*d:block*/
+  object-fit: cover; /*of:cover*/
+  transition: transform 0.3s ease; /*trs:transform 0.3s ease*/
+}
+
+/* Figcaption overlay */
+.gallery-image figcaption {
+  position: absolute; /*p:absolute*/
+  bottom: 0; /*b:0*/
+  left: 0; /*l:0*/
+  width: 100%; /*w:100%*/
+  background: rgba(0, 0, 0, 0.6); /*bg:rgba(0,0,0,0.6)*/
+  color: #fff; /*c:#fff*/
+  padding: 0.5em; /*p:0.5em*/
+  font-size: 0.9em; /*fz:0.9em*/
+  text-align: center; /*ta:center*/
+  opacity: 0; /*o:0*/
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease; /*trs:o 0.3s ease*/
+  transform: translateY(20%); /*t:translateY(20%)*/
+}
+
+/* Hover Effect for Gallery Images */
+.gallery-image:hover figcaption {
+  opacity: 1; /*o:1*/
+  transform: translateY(0); /*t:translateY(0)*/
+}
+
+@media (min-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /*gt:columns:repeat(2,1fr)*/
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr); /*gt:columns:repeat(3,1fr)*/
+  }
+}
+/*Responsive Design for video*/
+@media (max-width: 700px) {
+  .content-row {
+    flex-direction: column; /*fd:column*/
+  }
+  .content-row video {
+    margin: 1em auto; /*m:1em auto*/
+    width: 100%; /*w:100%*/
+    max-width: 100%; /*maxw:320px*/
+  }
+}
 @media (max-width: 32.5rem) {
   body {
     background-image: none;
@@ -362,16 +463,5 @@ input[type="submit"]:focus {
   }
   .card-row section {
     max-width: 100%; /*mw:100%*/
-  }
-  .content-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2em;
-    align-items: flex-start;
-    margin-bottom: 2em;
-  }
-  .text-content {
-    flex: 1;
-    min-width: 250px;
   }
 }
