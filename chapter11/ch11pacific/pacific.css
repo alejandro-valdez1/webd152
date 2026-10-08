@@ -302,7 +302,8 @@ input[type="submit"]:focus {
   background: #fff; /*bg:#fff*/
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease; /*trs:transform 0.3s ease, box-shadow 0.3s ease*/
+    box-shadow 0.3s ease,
+    /*trs:transform 0.3s ease, box-shadow 0.3s ease*/ all ease-in-out 1.2s; /*trs:all ease-in-out 0.3s*/
 }
 
 /* Images */
@@ -312,6 +313,19 @@ input[type="submit"]:focus {
   display: block; /*d:block*/
   object-fit: cover; /*of:cover*/
   transition: transform 0.3s ease; /*trs:transform 0.3s ease*/
+}
+/*Do it yourself: Hover Effect*/
+.gallery-image:hover {
+  transform: scale(1.07); /*t:scale(1.07)*/
+  box-shadow: 0 8px 20px rgba(37, 20, 225, 0.7); /*bs:0 8px 20px rgba(37, 20, 225, 0.7)*/
+  transition:
+    transform 1s ease,
+    box-shadow 1s ease,
+    background-color 3s ease;
+}
+
+.gallery-image:hover img {
+  transform: scale(1.1); /*t:scale(1.1)*/
 }
 
 /* Figcaption overlay */
