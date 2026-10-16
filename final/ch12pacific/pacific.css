@@ -98,7 +98,6 @@ h2 {
 h3 {
   color: #003; /*c003*/
 }
-
 dt {
   color: #002171; /*c#002171*/
 }
@@ -353,8 +352,63 @@ input[type="submit"]:focus {
 }
 
 /*final flexbox for About Us Page*/
+.cards {
+  display: flex; /*d:flex*/
+  flex-wrap: wrap;
+  gap: 2em; /*g:2em*/
+  justify-content: center;
+  /*margin-bottom: 2em; /*mb:2em*/
+}
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #fff;
+  
+}
 
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
 
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: #0b0446;
+  color: rgb(255, 255, 255);
+  transform: rotateY(180deg);
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 @media (min-width: 900px) {
   .gallery {
