@@ -121,7 +121,8 @@ footer {
 #homehero,
 #yurthero,
 #trailhero,
-#reservations-hero {
+#reservations-hero,
+#about-us-hero {
   background-repeat: no-repeat; /*bgr*/
   background-size: cover; /*bgc:cover*/
   height: 18.75rem; /*h:18.75rem*/
@@ -137,6 +138,9 @@ footer {
 }
 #reservations-hero {
   background-image: url(images/reservations.jpg);
+}
+#about-us-hero {
+  background-image: url(images/heroroad.jpg);
 }
 .card-row {
   display: flex; /*Enables flexbox layout*/
@@ -516,8 +520,12 @@ input[type="submit"]:focus {
     width: 100%; /*Allows submit button to size based on content*/
     margin-top: 0.5em; /*Adds space above the submit button*/
   }
+  .flip-card .flip-card-inner {
+    transform: rotateY(180deg); 
+  }
+
 }
-#about {
+.about {
   display: flex;
   flex-direction: row;
 }
@@ -540,4 +548,5 @@ input[type="submit"]:focus {
   .card-row section {
     max-width: 100%; /*mw:100%*/
   }
+
 }
